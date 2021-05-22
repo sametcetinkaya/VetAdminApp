@@ -4,15 +4,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.sametcetinkaya.vetadminapp.R
 import com.sametcetinkaya.vetadminapp.model.CampaignAdd
+import com.sametcetinkaya.vetadminapp.utils.imageDownload
+import com.sametcetinkaya.vetadminapp.utils.placeHolderCreate
 import kotlinx.android.synthetic.main.recycler_row.view.*
 import java.util.ArrayList
 
 class RecyclerAdapter(var listCampaign: ArrayList<CampaignAdd>) :
     RecyclerView.Adapter<RecyclerAdapter.CampaignViewHolder>() {
 
-    class CampaignViewHolder(var itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class CampaignViewHolder(var view: View) : RecyclerView.ViewHolder(view) {
 
     }
 
@@ -29,8 +32,13 @@ class RecyclerAdapter(var listCampaign: ArrayList<CampaignAdd>) :
     }
 
     override fun onBindViewHolder(holder: CampaignViewHolder, position: Int) {
-        holder.itemView.campaignSubtitle.text = listCampaign[position].campaignTitle
-        holder.itemView.campaignTitle.text = listCampaign[position].campaignTitle
+
+        holder.itemView.apply {
+            campaignSubtitle.text = listCampaign[position].campaignText
+            campaignTitle.text = listCampaign[position].campaignTitle
+            Glide.with(this).load(listCampaign[position].campaignImage).into(campaignImage)
+        }
+
 
 
     }
@@ -38,6 +46,13 @@ class RecyclerAdapter(var listCampaign: ArrayList<CampaignAdd>) :
     override fun getItemCount(): Int {
         return listCampaign.size
     }
+
+    fun campaignListUpdate(newCampaignList: List<CampaignAdd>) {
+        listCampaign.addAll(newCampaignList)
+        notifyDataSetChanged()
+    }
+
+
 
 
 }

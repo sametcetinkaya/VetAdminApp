@@ -9,22 +9,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface VetAdminAPI {
+interface  VetAdminAPI {
 
 
     @GET("kampanya.php")
-    fun getListCampaign() :Observable<List<CampaignAdd>>
-
-
-    companion object {
-        const val BASE_URL = "https://www.gamzesirakaya.com/veterinerservis/"
-        fun getService(): VetAdminAPI {
-            val retrofit = Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-            return retrofit.create(VetAdminAPI::class.java)
-        }
-    }
+    fun getBaseData(): Single<List<CampaignAdd>>
 }
