@@ -108,7 +108,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:orientation="horizontal"
-                    android:padding="10dp">
+                    android:padding="10dp"
+                    android:id="@+id/petTakip">
 
                     <ImageView
 
@@ -125,7 +126,7 @@
                         android:layout_gravity="center"
                         android:layout_weight="5"
                         android:gravity="center"
-                        android:text="Petlerim"
+                        android:text="Pet Takip"
                         android:textSize="25sp"
                         android:textStyle="bold" />
 

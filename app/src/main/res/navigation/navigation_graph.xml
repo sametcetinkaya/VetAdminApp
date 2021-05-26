@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
     app:startDestination="@id/homeFragment">
     <fragment
@@ -14,5 +15,14 @@
     <fragment
         android:id="@+id/campaignFragment"
         android:name="com.sametcetinkaya.vetadminapp.view.CampaignFragment"
-        android:label="CampaignFragment" />
+        android:label="CampaignFragment" >
+        <action
+            android:id="@+id/action_campaignFragment_to_addCampaignFragment"
+            app:destination="@id/addCampaignFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addCampaignFragment"
+        android:name="com.sametcetinkaya.vetadminapp.view.AddCampaignFragment"
+        android:label="fragment_add_campaign"
+        tools:layout="@layout/fragment_add_campaign" />
 </navigation>

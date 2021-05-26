@@ -30,14 +30,20 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        campaignCard.setOnClickListener {
+        kampanyaLayout.setOnClickListener {
             campaignAction(it)
+        }
+        petTakip.setOnClickListener{
+
         }
     }
 
     private fun campaignAction(view: View) {
         val action = HomeFragmentDirections.actionHomeFragmentToCampaignFragment()
         Navigation.findNavController(view).navigate(action)
+
+    }
+    private fun petTracking(view: View) {
 
     }
 
